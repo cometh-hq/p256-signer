@@ -15,6 +15,12 @@ module.exports = {
     },
   },
   networks: {
+    hardhat: {
+      forking: {
+        url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
+        blockNumber: 47134068,
+      }
+    },
     mumbai: {
       url: "https://polygon-mumbai.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.constants.HashZero],
