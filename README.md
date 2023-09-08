@@ -1,4 +1,5 @@
 # P256 Signer
+This library implements the decoding and verification of a signed [Webauthn](https://www.w3.org/TR/webauthn-2/) payload following the [EIP 1271](https://eips.ethereum.org/EIPS/eip-1271) providing an implementaiton of Standard Signature Validation Method when the account is a smart contract.
 
 ## Contracts overview
 
