@@ -1,7 +1,10 @@
 const { ethers } = require("ethers");
+const { getDeterministicDeployment } = require('@cometh/contracts-factory');
 
 require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-ethers");
 require("hardhat-gas-reporter");
+require("hardhat-deploy");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -14,6 +17,7 @@ module.exports = {
       },
     },
   },
+  deterministicDeployment: getDeterministicDeployment,
   networks: {
     hardhat: {
       forking: {
@@ -23,12 +27,22 @@ module.exports = {
     },
     mumbai: {
       url: "https://polygon-mumbai.infura.io/v3/" + process.env.INFURA_ID,
-      accounts: [process.env.PRIVATE_KEY || ethers.constants.HashZero],
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
     polygon: {
-      url: "https://polygon-mainnet.infura.io/" + process.env.INFURA_ID,
-      accounts: [process.env.PRIVATE_KEY || ethers.constants.HashZero],
+      url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+      gasPrice: Number(ethers.parseUnits('100', 'gwei')),
     },
+    sepolia: {
+      url: "https://sepolia.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    }
+  },
+  etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/
+    apiKey: process.env.ETHERSCAN_API_KEY,
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS ? true : false,
