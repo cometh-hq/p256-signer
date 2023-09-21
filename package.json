@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@cometh/contracts-factory": "^1.0.4",
+    "@cometh/contracts-factory": "^1.0.5",
     "@nomicfoundation/hardhat-verify": "^1.1.1",
     "@openzeppelin/contracts": "^4.8.2",
     "elliptic": "^6.5.4",

@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/libc/Cometh/p256-signer/contracts/Base64URL.sol": {
-      "lastModificationDate": 1693829693563,
+    "/Users/fred/Documents/projects/p256-signer/contracts/Base64URL.sol": {
+      "lastModificationDate": 1693680594149,
       "contentHash": "e75f6ac2363d2b794b39fa3b2d1ef41a",
       "sourceName": "contracts/Base64URL.sol",
       "solcConfig": {
@@ -43,8 +43,8 @@
         "Base64URL"
       ]
     },
-    "/Users/libc/Cometh/p256-signer/contracts/Webauthn.sol": {
-      "lastModificationDate": 1693829693564,
+    "/Users/fred/Documents/projects/p256-signer/contracts/Webauthn.sol": {
+      "lastModificationDate": 1693680594148,
       "contentHash": "e0be51c16a4426756f606e6632083cdb",
       "sourceName": "contracts/Webauthn.sol",
       "solcConfig": {
@@ -89,8 +89,8 @@
         "Webauthn"
       ]
     },
-    "/Users/libc/Cometh/p256-signer/contracts/FCL/FCL_elliptic.sol": {
-      "lastModificationDate": 1693829693563,
+    "/Users/fred/Documents/projects/p256-signer/contracts/FCL/FCL_elliptic.sol": {
+      "lastModificationDate": 1693680594150,
       "contentHash": "85d957b8f3f6b0b83e2e6e2977845703",
       "sourceName": "contracts/FCL/FCL_elliptic.sol",
       "solcConfig": {
@@ -131,8 +131,8 @@
         "FCL_Elliptic_ZZ"
       ]
     },
-    "/Users/libc/Cometh/p256-signer/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1693829761592,
+    "/Users/fred/Documents/projects/p256-signer/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1693681119469,
       "contentHash": "4ff3cd2f6272c9a6516e9ee4f2b967d3",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {
@@ -173,8 +173,8 @@
         "console"
       ]
     },
-    "/Users/libc/Cometh/p256-signer/contracts/P256Signer.sol": {
-      "lastModificationDate": 1693829693563,
+    "/Users/fred/Documents/projects/p256-signer/contracts/P256Signer.sol": {
+      "lastModificationDate": 1693680594148,
       "contentHash": "733868eadc8b2008c5729b972b75d3dc",
       "sourceName": "contracts/P256Signer.sol",
       "solcConfig": {
@@ -218,8 +218,8 @@
         "P256Signer"
       ]
     },
-    "/Users/libc/Cometh/p256-signer/contracts/P256SignerFactory.sol": {
-      "lastModificationDate": 1693829693563,
+    "/Users/fred/Documents/projects/p256-signer/contracts/P256SignerFactory.sol": {
+      "lastModificationDate": 1693680594150,
       "contentHash": "c036ea93ff11e04750e70328fb9072ab",
       "sourceName": "contracts/P256SignerFactory.sol",
       "solcConfig": {
