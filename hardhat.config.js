@@ -54,13 +54,47 @@ module.exports = {
     gnosischain_production: {
       url: "https://rpc.gnosischain.com",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
-    }
+    },
+    chiado: {
+      url: "https://rpc.chiadochain.net",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    chiado_production: {
+      url: "https://rpc.chiadochain.net",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    avalanche: {
+      url: "https://api.avax.network/ext/bc/C/rpc",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    avalanche_production: {
+      url: "https://api.avax.network/ext/bc/C/rpc",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    fuji: {
+      url: "https://rpc.ankr.com/avalanche_fuji",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    fuji_production: {
+      url: "https://rpc.ankr.com/avalanche_fuji",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
 
   },
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
     apiKey: process.env.ETHERSCAN_API_KEY,
+    customChains: [
+      {
+        network: "chiado",
+        chainId: 10200,
+        urls: {
+          apiURL: "https://gnosis-chiado.blockscout.com/api",
+          browserURL: "https://gnosis-chiado.blockscout.com/"
+        }
+      }
+    ]
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS ? true : false,
