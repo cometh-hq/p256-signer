@@ -33,10 +33,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@cometh/contracts-factory@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@cometh/contracts-factory/-/contracts-factory-1.0.5.tgz#acc249271fcd2fb17c7bc8a8c7bf48d96c100733"
-  integrity sha512-DY94ydzn0SY1WRAtL+2E79A3SRW3tZ4bnkkAK10RlJJoI4CgboWm4OllAJqwJypWzL0VR6Qy65WoCWs2uua6eQ==
+"@cometh/contracts-factory@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@cometh/contracts-factory/-/contracts-factory-1.1.1.tgz#1aa2ea83c48c696c56634984df76b7170b48b461"
+  integrity sha512-5T7apu4/yBT6/XTjvQKVqGCNaxvxVA/gjeiw9FD7CEGaTa4o0ZiK7wctOw/Wb47dq/DJrKhw5k5Ehhi/hM8F7Q==
   dependencies:
     ethers "^5.7.0"
 

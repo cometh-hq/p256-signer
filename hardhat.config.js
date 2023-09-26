@@ -17,7 +17,11 @@ module.exports = {
       },
     },
   },
-  deterministicDeployment: getDeterministicDeployment,
+  deterministicDeployment: (network) => {
+    const networkName = process.env.HARDHAT_NETWORK ?? '';
+    const env = networkName.endsWith('_production') ? 'production' : 'develop';
+    return getDeterministicDeployment(env)(network);
+  },
   networks: {
     hardhat: {
       forking: {
@@ -29,15 +33,29 @@ module.exports = {
       url: "https://polygon-mumbai.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
+    mumbai_production: {
+      url: "https://polygon-mumbai.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
     polygon: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
       gasPrice: Number(ethers.parseUnits('100', 'gwei')),
     },
-    sepolia: {
-      url: "https://sepolia.infura.io/v3/" + process.env.INFURA_ID,
+    polygon_production: {
+      url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+      gasPrice: Number(ethers.parseUnits('100', 'gwei')),
+    },
+    gnosischain: {
+      url: "https://rpc.gnosischain.com",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    gnosischain_production: {
+      url: "https://rpc.gnosischain.com",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     }
+
   },
   etherscan: {
     // Your API key for Etherscan
