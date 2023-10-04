@@ -5,20 +5,26 @@ const { expect } = require("chai");
 const factoryAddress = '0xa6b71e26c5e0845f74c812102ca7114b6a896ab2';
 
 describe("Gnosis Safe", function () {
-  it('should deploy a a Safe, add a p256 signer and verify a signature with Webauthn', async () => {
+  
+  it('should deploy a Safe, add a p256 signer and verify a signature with Webauthn', async () => {
     const signer = await ethers.getImpersonatedSigner('0xb908ca274f85c4732640aaf44a99543ab63c7626');
 
     const Webauthn = await ethers.getContractFactory("Webauthn");
     const webauthn = await Webauthn.connect(signer).deploy();
     await webauthn.waitForDeployment();
 
-    const P256SignerFactory = await ethers.getContractFactory("P256SignerFactory", {
+    const P256SignerImplementationFactory = await ethers.getContractFactory("P256Signer",  {
       libraries: {
         Webauthn: await webauthn.getAddress()
       }
     });
+  
+    const implementation = await P256SignerImplementationFactory.connect(signer).deploy();
+    await implementation.waitForDeployment();
 
-    const factory = await P256SignerFactory.connect(signer).deploy();
+    const P256SignerFactory = await ethers.getContractFactory("P256SignerFactory");
+
+    const factory = await P256SignerFactory.connect(signer).deploy(implementation);
     await factory.waitForDeployment();
 
     const x = '0x6391e7beef1b4190a59dbd8b56df46efe1115426b644f8649221245f4d14ea92';
