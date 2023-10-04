@@ -1,5 +1,6 @@
 pragma solidity ^0.8.0;
 
+import {P256Signer} from "./P256Signer.sol";
 import "solady/src/utils/LibClone.sol";
 
 /// @title P256SignerFactory
@@ -19,9 +20,9 @@ contract P256SignerFactory {
     /// @param x The x coordinate of the public key
     /// @param y The y coordinate of the public key
     function create(uint256 x, uint256 y) external {
-        bytes memory args = abi.encodePacked(x, y);
-        bytes32 salt = keccak256(args);
-        address signer = LibClone.cloneDeterministic(implementation, args, salt);
+        bytes32 salt = keccak256(abi.encodePacked(x, y));
+        address signer = LibClone.cloneDeterministic(implementation, salt);
+        P256Signer(signer).initialize(x, y);
         emit NewSignerCreated(x, y, signer);
     }
 }
