@@ -27,6 +27,7 @@
     "ethers": "^6.7.1",
     "hardhat-deploy": "^0.11.37",
     "hardhat-gas-reporter": "^1.0.9",
+    "solady": "^0.0.123",
     "solidity-coverage": "^0.8.0",
     "typechain": "^8.1.0"
   }
