@@ -3,7 +3,6 @@ pragma solidity ^0.8.0;
 
 import {Base64URL} from "./Base64URL.sol";
 import {FCL_Elliptic_ZZ} from "./FCL/FCL_elliptic.sol";
-import "hardhat/console.sol";
 
 error InvalidAuthenticatorData();
 error InvalidClientData();
