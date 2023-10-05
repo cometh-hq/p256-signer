@@ -19,10 +19,11 @@ contract P256SignerFactory {
     /// @notice Creates a new P256Signer proxy contract
     /// @param x The x coordinate of the public key
     /// @param y The y coordinate of the public key
-    function create(uint256 x, uint256 y) external {
+    function create(uint256 x, uint256 y) external returns (address) {
         bytes32 salt = keccak256(abi.encodePacked(x, y));
         address signer = LibClone.cloneDeterministic(implementation, salt);
         P256Signer(signer).initialize(x, y);
         emit NewSignerCreated(x, y, signer);
+        return signer;
     }
 }
