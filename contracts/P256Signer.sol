@@ -75,6 +75,7 @@ contract P256Signer {
     /// @param y_ The y coordinate of the public key
     function initialize(uint256 x_, uint256 y_) external {
         if (initialized) revert AlreadyInitialized();
+        initialized = true;
         x = x_;
         y = y_;
     }
