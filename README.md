@@ -23,12 +23,19 @@ The `P256SignerFactory` contract is a factory for P256Signers. It allows us to h
 
 ## Launch tests
 
-Hardhat
+You will need `INFURA_ID=<your_infura_id>` in your env variables.
+
+To launch both hardhat and forge tests:
 ```bash
-INFURA_ID=<ID> npx hardhat test
+yarn test
 ```
 
-Forge
+### Hardhat
+```bash
+npx hardhat test
+```
+
+### Forge
 ```bash
 forge test
 ```

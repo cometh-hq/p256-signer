@@ -31,5 +31,8 @@
     "solady": "^0.0.123",
     "solidity-coverage": "^0.8.0",
     "typechain": "^8.1.0"
+  },
+  "scripts": {
+    "test": "forge test && INFURA_ID=$INFURA_ID npx hardhat test"
   }
 }
