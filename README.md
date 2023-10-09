@@ -19,3 +19,23 @@ The `P256Signer` contract represents a Gnosis Safe signer for a given secp256r1 
 ### P256SignerFactory.sol
 
 The `P256SignerFactory` contract is a factory for P256Signers. It allows us to have deterministic addresses for a given secp256r1 public key.
+
+
+## Launch tests
+
+You will need `INFURA_ID=<your_infura_id>` in your env variables.
+
+To launch both hardhat and forge tests:
+```bash
+yarn test
+```
+
+### Hardhat
+```bash
+npx hardhat test
+```
+
+### Forge
+```bash
+forge test
+```

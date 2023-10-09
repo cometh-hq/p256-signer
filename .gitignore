@@ -131,3 +131,6 @@ dist
 
 # hardhat
 cache/
+
+# forge
+cache_forge/

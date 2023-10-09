@@ -17,6 +17,7 @@
     "@ethersproject/providers": "^5.4.7",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.0",
     "@nomicfoundation/hardhat-ethers": "^3.0.4",
+    "@nomicfoundation/hardhat-foundry": "^1.1.1",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
@@ -30,5 +31,8 @@
     "solady": "^0.0.123",
     "solidity-coverage": "^0.8.0",
     "typechain": "^8.1.0"
+  },
+  "scripts": {
+    "test": "forge test && INFURA_ID=$INFURA_ID npx hardhat test"
   }
 }
