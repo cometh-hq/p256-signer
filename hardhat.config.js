@@ -80,7 +80,10 @@ module.exports = {
       url: "https://rpc.ankr.com/avalanche_fuji",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
-
+    polygon_zkevm_testnet_production: {
+      url: "https://rpc.public.zkevm-test.net",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
   },
   etherscan: {
     // Your API key for Etherscan
@@ -93,6 +96,14 @@ module.exports = {
         urls: {
           apiURL: "https://gnosis-chiado.blockscout.com/api",
           browserURL: "https://gnosis-chiado.blockscout.com/"
+        }
+      },
+      {
+        network: "polygon_zkevm_testnet",
+        chainId: 1442,
+        urls: {
+          apiURL: "https://testnet-zkevm.polygonscan.com/api",
+          browserURL: "https://testnet-zkevm.polygonscan.com/"
         }
       }
     ]
