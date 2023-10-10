@@ -10,23 +10,31 @@ const deploy = async (hre) => {
     deterministicDeployment: true,
   });
 
-  const factory = await deploy("P256SignerFactory", {
+  const P256Signer = await deploy("P256Signer", {
     from: deployer.address,
     log: true,
     libraries: {
-        Webauthn: webauthn.address
+      Webauthn: webauthn.address,
     },
     deterministicDeployment: true,
   });
 
+  const factory = await deploy("P256SignerFactory", {
+    from: deployer.address,
+    log: true,
+    deterministicDeployment: true,
+    args: [P256Signer.address],
+  });
+
   await run("verify:verify", { address: webauthn.address });
   await run("verify:verify", {
-    address: factory.address,
+    address: P256Signer.address,
     libraries: {
       Webauthn: webauthn.address,
     },
   });
+  await run("verify:verify", { address: factory.address });
 };
 
 module.exports = deploy;
-deploy.tags = 'p256-signer';
+deploy.tags = "p256-signer";
