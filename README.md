@@ -20,6 +20,9 @@ The `P256Signer` contract represents a Gnosis Safe signer for a given secp256r1 
 
 The `P256SignerFactory` contract is a factory for P256Signers. It allows us to have deterministic addresses for a given secp256r1 public key.
 
+## Signature malleability
+Clients need to note there is a potential signature malleability by replacing `(r, s)` by `(r, -s mod n)`.
+It is the responsibility of the client to check the message signed is played only once if necessary.
 
 ## Launch tests
 
