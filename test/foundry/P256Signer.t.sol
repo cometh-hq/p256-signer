@@ -52,6 +52,7 @@ contract TestP256Signer is Test {
     }
 
     function testFuzzRevertInvalidMessageToSignValidSignatureOld(bytes memory messageToSign_) public {
+        vm.assume(keccak256(messageToSign_) != keccak256(messageToSign));
         bytes memory signatureMem = signature;
         vm.expectRevert(InvalidClientData.selector);
         signerInstance.isValidSignature(messageToSign_, signatureMem);
