@@ -25,7 +25,12 @@ async function main() {
   // Compute address
   computedAddress = ethers.getCreate2Address(from, salt, initCodeHash);
 
-  console.log(computedAddress);
+  // Bytecode
+  // See https://github.com/Vectorized/solady/blob/08901b1131be4903e989884571198d72de1c0ee9/src/utils/LibClone.sol#L55
+  bytecode = "0x" + initCode.substring(20);
+
+  console.log("Address:", computedAddress);
+  console.log("Bytecode:", bytecode);
 }
 
 main().catch(console.error);
