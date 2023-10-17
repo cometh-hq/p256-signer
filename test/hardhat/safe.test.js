@@ -9,13 +9,13 @@ describe("Gnosis Safe", function () {
   it('should deploy a Safe, add a p256 signer and verify a signature with Webauthn', async () => {
     const signer = await ethers.getImpersonatedSigner('0xb908ca274f85c4732640aaf44a99543ab63c7626');
 
-    const Webauthn = await ethers.getContractFactory("Webauthn");
-    const webauthn = await Webauthn.connect(signer).deploy();
-    await webauthn.waitForDeployment();
+    const WrapperFCLWebAuthn = await ethers.getContractFactory("WrapperFCLWebAuthn");
+    const wrapperFCLWebAuthn = await WrapperFCLWebAuthn.connect(signer).deploy();
+    await wrapperFCLWebAuthn.waitForDeployment();
 
     const P256SignerImplementationFactory = await ethers.getContractFactory("P256Signer",  {
       libraries: {
-        Webauthn: await webauthn.getAddress()
+        WrapperFCLWebAuthn: await wrapperFCLWebAuthn.getAddress()
       }
     });
   

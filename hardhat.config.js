@@ -10,12 +10,13 @@ require("@nomicfoundation/hardhat-foundry");
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
-    version: "0.8.17",
+    version: "0.8.20",
     settings: {
       optimizer: {
         enabled: true,
         runs: 1000000,
       },
+      evmVersion: "paris",
     },
   },
   deterministicDeployment: (network) => {

@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 
-import {Webauthn} from "./Webauthn.sol";
+import {WrapperFCLWebAuthn} from "./FCL/WrapperFCLWebAuthn.sol";
 
 /// @title P256Signer
 /// @notice A contract used to verify ECDSA signatures over secp256r1 through
@@ -64,7 +64,7 @@ contract P256Signer {
         (bytes memory authenticatorData, bytes memory clientData, uint256 challengeOffset, uint256[2] memory rs) =
             abi.decode(_signature, (bytes, bytes, uint256, uint256[2]));
 
-        bool valid = Webauthn.checkSignature(authenticatorData, 0x01, clientData, _hash, challengeOffset, rs, [x, y]);
+        bool valid = WrapperFCLWebAuthn.checkSignature(authenticatorData, 0x01, clientData, _hash, challengeOffset, rs, [x, y]);
 
         if (!valid) revert InvalidSignature();
     }

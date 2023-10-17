@@ -2,7 +2,7 @@ pragma solidity ^0.8.0;
 
 import {P256Signer} from "../../contracts/P256Signer.sol";
 import {P256SignerFactory} from "../../contracts/P256SignerFactory.sol";
-import {InvalidClientData} from "../../contracts/Webauthn.sol";
+import {FCL_WebAuthn} from "FreshCryptoLib/FCL_Webauthn.sol";
 
 import "forge-std/Test.sol";
 
@@ -54,7 +54,7 @@ contract TestP256Signer is Test {
     function testFuzzRevertInvalidMessageToSignValidSignatureOld(bytes memory messageToSign_) public {
         vm.assume(keccak256(messageToSign_) != keccak256(messageToSign));
         bytes memory signatureMem = signature;
-        vm.expectRevert(InvalidClientData.selector);
+        vm.expectRevert(FCL_WebAuthn.InvalidClientData.selector);
         signerInstance.isValidSignature(messageToSign_, signatureMem);
     }
 }
