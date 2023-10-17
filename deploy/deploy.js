@@ -13,8 +13,10 @@ const deploy = async (hre) => {
   const P256Signer = await deploy("P256Signer", {
     from: deployer.address,
     log: true,
+    libraries: {
+      WrapperFCLWebAuthn: wrapperFCLWebAuthn.address,
+    },
     deterministicDeployment: true,
-    args: [wrapperFCLWebAuthn.address],
   });
 
   const factory = await deploy("P256SignerFactory", {
@@ -27,6 +29,9 @@ const deploy = async (hre) => {
   await run("verify:verify", { address: wrapperFCLWebAuthn.address });
   await run("verify:verify", {
     address: P256Signer.address,
+    libraries: {
+      WrapperFCLWebAuthn: wrapperFCLWebAuthn.address,
+    },
   });
   await run("verify:verify", { address: factory.address });
 };
