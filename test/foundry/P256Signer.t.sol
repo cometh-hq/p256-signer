@@ -29,9 +29,15 @@ contract TestP256Signer is Test {
     }
 
     function testDeploy() public {
+        assertEq(address(signer.FCLWebAuthn()), wrapperFCLWebAuthn);
         assertTrue(signer.initialized());
         assertEq(signer.x(), 0);
         assertEq(signer.y(), 0);
+    }
+
+    function testRevertDeployAddressNotContract() public {
+        vm.expectRevert(P256Signer.AddressNotContract.selector);
+        new P256Signer(address(0));
     }
 
     function testRevertInitializeImplementation() public {

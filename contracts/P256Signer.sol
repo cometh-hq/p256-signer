@@ -35,7 +35,11 @@ contract P256Signer {
     /// @notice Error message when the contract is already initialized
     error AlreadyInitialized();
 
+    /// @notice Error message when the address is not a contract
+    error AddressNotContract();
+
     constructor(address FCLWebAuthn_) {
+        if (FCLWebAuthn_.code.length == 0) revert AddressNotContract();
         initialized = true;
         FCLWebAuthn = WrapperFCLWebAuthn(FCLWebAuthn_);
     }
