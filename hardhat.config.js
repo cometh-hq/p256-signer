@@ -16,6 +16,7 @@ module.exports = {
         enabled: true,
         runs: 1000000,
       },
+      evmVersion: "paris",
     },
   },
   deterministicDeployment: (network) => {
