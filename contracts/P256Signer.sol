@@ -14,9 +14,6 @@ contract P256Signer {
     /// @notice The old EIP-1271 magic value
     bytes4 internal constant OLD_EIP1271_MAGICVALUE = 0x20c13b0b;
 
-    // The address of the FCLWebAuthn contract
-    WrapperFCLWebAuthn public immutable FCLWebAuthn;
-
     /// @notice Whether the contract has been initialized
     bool public initialized;
 
@@ -35,13 +32,8 @@ contract P256Signer {
     /// @notice Error message when the contract is already initialized
     error AlreadyInitialized();
 
-    /// @notice Error message when the address is not a contract
-    error AddressNotContract();
-
-    constructor(address FCLWebAuthn_) {
-        if (FCLWebAuthn_.code.length == 0) revert AddressNotContract();
+    constructor() {
         initialized = true;
-        FCLWebAuthn = WrapperFCLWebAuthn(FCLWebAuthn_);
     }
 
     /// @notice Verifies that the signer is the owner of the secp256r1 public key.
@@ -72,7 +64,7 @@ contract P256Signer {
         (bytes memory authenticatorData, bytes memory clientData, uint256 challengeOffset, uint256[2] memory rs) =
             abi.decode(_signature, (bytes, bytes, uint256, uint256[2]));
 
-        bool valid = FCLWebAuthn.checkSignature(authenticatorData, 0x01, clientData, _hash, challengeOffset, rs, [x, y]);
+        bool valid = WrapperFCLWebAuthn.checkSignature(authenticatorData, 0x01, clientData, _hash, challengeOffset, rs, [x, y]);
 
         if (!valid) revert InvalidSignature();
     }
