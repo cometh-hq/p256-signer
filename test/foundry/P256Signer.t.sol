@@ -2,11 +2,13 @@ pragma solidity ^0.8.0;
 
 import {P256Signer} from "../../contracts/P256Signer.sol";
 import {P256SignerFactory} from "../../contracts/P256SignerFactory.sol";
-import {InvalidClientData} from "../../contracts/Webauthn.sol";
+import {FCL_WebAuthn} from "FreshCryptoLib/FCL_Webauthn.sol";
+import {WrapperFCLWebAuthn} from "../../contracts/FCL/WrapperFCLWebAuthn.sol";
 
 import "forge-std/Test.sol";
 
 contract TestP256Signer is Test {
+    address wrapperFCLWebAuthn;
     P256Signer signer;
     P256Signer signerInstance;
     P256SignerFactory factory;
@@ -20,7 +22,8 @@ contract TestP256Signer is Test {
     bytes messageToSign = hex"cdf841e2c26037e4331174c05ee3e822c5cb6c076b70101637af03284c56e29e";
 
     function setUp() public {
-        signer = new P256Signer();
+        wrapperFCLWebAuthn = address(new WrapperFCLWebAuthn());
+        signer = new P256Signer(wrapperFCLWebAuthn);
         factory = new P256SignerFactory(address(signer));
         signerInstance = P256Signer(factory.create(x, y));
     }
@@ -54,7 +57,7 @@ contract TestP256Signer is Test {
     function testFuzzRevertInvalidMessageToSignValidSignatureOld(bytes memory messageToSign_) public {
         vm.assume(keccak256(messageToSign_) != keccak256(messageToSign));
         bytes memory signatureMem = signature;
-        vm.expectRevert(InvalidClientData.selector);
+        vm.expectRevert(FCL_WebAuthn.InvalidClientData.selector);
         signerInstance.isValidSignature(messageToSign_, signatureMem);
     }
 }

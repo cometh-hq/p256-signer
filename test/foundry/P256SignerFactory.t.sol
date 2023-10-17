@@ -3,10 +3,12 @@ pragma solidity ^0.8.0;
 import {P256Signer} from "../../contracts/P256Signer.sol";
 import {P256SignerFactory} from "../../contracts/P256SignerFactory.sol";
 import {LibClone} from "solady/src/utils/LibClone.sol";
+import {WrapperFCLWebAuthn} from "../../contracts/FCL/WrapperFCLWebAuthn.sol";
 
 import "forge-std/Test.sol";
 
 contract TestP256SignerFactory is Test {
+    address wrapperFCLWebAuthn;
     address signerImplementation;
     P256SignerFactory factory;
 
@@ -14,7 +16,8 @@ contract TestP256SignerFactory is Test {
     event NewSignerCreated(uint256 indexed x, uint256 indexed y, address signer);
 
     function setUp() public {
-        signerImplementation = address(new P256Signer());
+        wrapperFCLWebAuthn = address(new WrapperFCLWebAuthn());
+        signerImplementation = address(new P256Signer(wrapperFCLWebAuthn));
         factory = new P256SignerFactory(signerImplementation);
     }
 
