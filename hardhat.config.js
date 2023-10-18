@@ -39,12 +39,21 @@ module.exports = {
       url: "https://polygon-mumbai.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
+    mumbai_staging: {
+      url: "https://polygon-mumbai.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
     polygon: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
       gasPrice: Number(ethers.parseUnits('100', 'gwei')),
     },
     polygon_production: {
+      url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+      gasPrice: Number(ethers.parseUnits('100', 'gwei')),
+    },
+    polygon_staging: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
       gasPrice: Number(ethers.parseUnits('100', 'gwei')),
