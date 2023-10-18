@@ -7,8 +7,9 @@ import {FCL_WebAuthn} from "FreshCryptoLib/FCL_Webauthn.sol";
 ///         EIP-1271 of Webauthn payloads.
 /// @dev This lib is only a wrapper around the FCL_WebAuthn library.
 ///      It is meant to be used with 1271 signatures.
-///      The wrapping is necessary because the library to make it an external 
-///      library.
+///      The wrapping is necessary because the FCL_WebAuthn has only internal
+///      functions and use calldata. This makes it impossible to use it with
+///      isValidSignature that use memory.
 library WrapperFCLWebAuthn {
     function checkSignature(
         bytes calldata authenticatorData,
