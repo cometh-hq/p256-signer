@@ -26,7 +26,13 @@ It is the responsibility of the client to check the message signed is played onl
 
 ## Launch tests
 
-You will need `INFURA_ID=<your_infura_id>` in your env variables.
+You will need `INFURA_ID=<your_infura_id>` in your env variables.  
+You will need forge installed, see foundry book for instructions [here](https://book.getfoundry.sh/getting-started/installation).
+
+Install FCL dependency:
+```bash
+forge install
+```
 
 To launch both hardhat and forge tests:
 ```bash
