@@ -48,3 +48,9 @@ npx hardhat test
 ```bash
 forge test
 ```
+
+## Deploy
+
+```bash
+HARDHAT_NETWORK=<target_network> npx hardhat deploy
+```
