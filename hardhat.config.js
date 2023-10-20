@@ -37,6 +37,18 @@ module.exports = {
         blockNumber: 47134068,
       }
     },
+    muster: {
+      url: "https://muster-anytrust.alt.technology",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    muster_production: {
+      url: "https://muster-anytrust.alt.technology",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    muster_staging: {
+      url: "https://muster-anytrust.alt.technology",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
     mumbai: {
       url: "https://polygon-mumbai.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
