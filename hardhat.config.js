@@ -21,8 +21,16 @@ module.exports = {
   },
   deterministicDeployment: (network) => {
     const networkName = process.env.HARDHAT_NETWORK ?? '';
-    const env = networkName.endsWith('_production') ? 'production' : 'develop';
-    return getDeterministicDeployment(env)(network);
+    const env = (() => {
+      switch (true) {
+        case networkName.endsWith('_production'):
+          return 'production';
+        case networkName.endsWith('_staging'):
+          return 'staging';
+        default:
+          return 'develop';
+      }
+    })();return getDeterministicDeployment(env)(network);
   },
   networks: {
     hardhat: {
@@ -39,12 +47,21 @@ module.exports = {
       url: "https://polygon-mumbai.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
+    mumbai_staging: {
+      url: "https://polygon-mumbai.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
     polygon: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
       gasPrice: Number(ethers.parseUnits('100', 'gwei')),
     },
     polygon_production: {
+      url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+      gasPrice: Number(ethers.parseUnits('100', 'gwei')),
+    },
+    polygon_staging: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
       gasPrice: Number(ethers.parseUnits('100', 'gwei')),
