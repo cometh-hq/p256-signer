@@ -37,15 +37,15 @@ module.exports = {
         blockNumber: 47134068,
       }
     },
-    muster: {
+    muster_testnet: {
       url: "https://muster-anytrust.alt.technology",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
-    muster_production: {
+    muster_testnet_production: {
       url: "https://muster-anytrust.alt.technology",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
-    muster_staging: {
+    muster_testnet_staging: {
       url: "https://muster-anytrust.alt.technology",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
