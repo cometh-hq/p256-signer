@@ -6,3 +6,5 @@ test = 'test/foundry'
 cache_path  = 'cache_forge'
 solc_version = '0.8.20'
 evm_version = 'paris'
+optimizer = true
+optimizer_runs = 1000000
