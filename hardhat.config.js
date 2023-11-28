@@ -1,5 +1,5 @@
 const { ethers } = require("ethers");
-const { getDeterministicDeployment } = require('@cometh/contracts-factory');
+const { getDeterministicDeployment } = require("@cometh/contracts-factory");
 
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-ethers");
@@ -20,24 +20,25 @@ module.exports = {
     },
   },
   deterministicDeployment: (network) => {
-    const networkName = process.env.HARDHAT_NETWORK ?? '';
+    const networkName = process.env.HARDHAT_NETWORK ?? "";
     const env = (() => {
       switch (true) {
-        case networkName.endsWith('_production'):
-          return 'production';
-        case networkName.endsWith('_staging'):
-          return 'staging';
+        case networkName.endsWith("_production"):
+          return "production";
+        case networkName.endsWith("_staging"):
+          return "staging";
         default:
-          return 'develop';
+          return "develop";
       }
-    })();return getDeterministicDeployment(env)(network);
+    })();
+    return getDeterministicDeployment(env)(network);
   },
   networks: {
     hardhat: {
       forking: {
         url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
         blockNumber: 47134068,
-      }
+      },
     },
     muster_testnet: {
       url: "https://muster-anytrust.alt.technology",
@@ -66,17 +67,17 @@ module.exports = {
     polygon: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
-      gasPrice: Number(ethers.parseUnits('100', 'gwei')),
+      gasPrice: Number(ethers.parseUnits("100", "gwei")),
     },
     polygon_production: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
-      gasPrice: Number(ethers.parseUnits('100', 'gwei')),
+      gasPrice: Number(ethers.parseUnits("100", "gwei")),
     },
     polygon_staging: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
-      gasPrice: Number(ethers.parseUnits('100', 'gwei')),
+      gasPrice: Number(ethers.parseUnits("100", "gwei")),
     },
     gnosischain: {
       url: "https://rpc.gnosischain.com",
@@ -114,6 +115,10 @@ module.exports = {
       url: "https://rpc.public.zkevm-test.net",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
+    redstone_holesky_production: {
+      url: "https://rpc.holesky.redstone.xyz",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
   },
   etherscan: {
     // Your API key for Etherscan
@@ -125,18 +130,18 @@ module.exports = {
         chainId: 10200,
         urls: {
           apiURL: "https://gnosis-chiado.blockscout.com/api",
-          browserURL: "https://gnosis-chiado.blockscout.com/"
-        }
+          browserURL: "https://gnosis-chiado.blockscout.com/",
+        },
       },
       {
         network: "polygon_zkevm_testnet",
         chainId: 1442,
         urls: {
           apiURL: "https://testnet-zkevm.polygonscan.com/api",
-          browserURL: "https://testnet-zkevm.polygonscan.com/"
-        }
-      }
-    ]
+          browserURL: "https://testnet-zkevm.polygonscan.com/",
+        },
+      },
+    ],
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS ? true : false,
