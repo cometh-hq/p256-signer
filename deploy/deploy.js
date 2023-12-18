@@ -33,7 +33,10 @@ const deploy = async (hre) => {
       WrapperFCLWebAuthn: wrapperFCLWebAuthn.address,
     },
   });
-  await run("verify:verify", { address: factory.address });
+  await run("verify:verify", {
+    address: factory.address,
+    constructorArguments: [P256Signer.address],
+  });
 };
 
 module.exports = deploy;

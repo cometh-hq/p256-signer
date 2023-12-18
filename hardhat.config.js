@@ -6,6 +6,9 @@ require("@nomiclabs/hardhat-ethers");
 require("hardhat-gas-reporter");
 require("hardhat-deploy");
 require("@nomicfoundation/hardhat-foundry");
+require("dotenv").config();
+
+if (!process.env.PRIVATE_KEY) throw new Error("no private key found");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -115,10 +118,6 @@ module.exports = {
       url: "https://rpc.public.zkevm-test.net",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
-    redstone_holesky_production: {
-      url: "https://rpc.holesky.redstone.xyz",
-      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
-    },
   },
   etherscan: {
     // Your API key for Etherscan
@@ -131,6 +130,13 @@ module.exports = {
         urls: {
           apiURL: "https://gnosis-chiado.blockscout.com/api",
           browserURL: "https://gnosis-chiado.blockscout.com/",
+        },
+      },
+      {
+        network: "muster_testnet",
+        chainId: 2121337,
+        urls: {
+          apiURL: "https://muster-anytrust-explorer.alt.technology/api",
         },
       },
       {
