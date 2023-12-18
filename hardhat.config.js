@@ -116,6 +116,10 @@ module.exports = {
       url: "https://rpc.public.zkevm-test.net",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
+    redstone_holesky_production: {
+      url: "https://rpc.holesky.redstone.xyz",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
   },
   etherscan: {
     // Your API key for Etherscan
