@@ -8,8 +8,6 @@ require("hardhat-deploy");
 require("@nomicfoundation/hardhat-foundry");
 require("dotenv").config();
 
-if (!process.env.PRIVATE_KEY) throw new Error("no private key found");
-
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
