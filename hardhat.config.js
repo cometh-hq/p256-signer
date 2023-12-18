@@ -6,6 +6,7 @@ require("@nomiclabs/hardhat-ethers");
 require("hardhat-gas-reporter");
 require("hardhat-deploy");
 require("@nomicfoundation/hardhat-foundry");
+require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -131,6 +132,13 @@ module.exports = {
         urls: {
           apiURL: "https://gnosis-chiado.blockscout.com/api",
           browserURL: "https://gnosis-chiado.blockscout.com/",
+        },
+      },
+      {
+        network: "muster_testnet",
+        chainId: 2121337,
+        urls: {
+          apiURL: "https://muster-anytrust-explorer.alt.technology/api",
         },
       },
       {
