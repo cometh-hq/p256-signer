@@ -68,17 +68,17 @@ module.exports = {
     polygon: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
-      gasPrice: Number(ethers.parseUnits("100", "gwei")),
+      gasPrice: Number(ethers.parseUnits("200", "gwei")),
     },
     polygon_production: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
-      gasPrice: Number(ethers.parseUnits("100", "gwei")),
+      gasPrice: Number(ethers.parseUnits("200", "gwei")),
     },
     polygon_staging: {
       url: "https://polygon-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
-      gasPrice: Number(ethers.parseUnits("100", "gwei")),
+      gasPrice: Number(ethers.parseUnits("200", "gwei")),
     },
     gnosischain: {
       url: "https://rpc.gnosischain.com",
