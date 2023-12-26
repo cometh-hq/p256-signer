@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 
-import {WrapperFCLWebAuthn} from "./FCL/WrapperFCLWebAuthn.sol";
+import {FCL_WebAuthn} from "FreshCryptoLib/FCL_Webauthn.sol";
 
 /// @title P256Signer
 /// @notice A contract used to verify ECDSA signatures over secp256r1 through
@@ -40,7 +40,7 @@ contract P256Signer {
     /// @param _hash The hash of the data signed
     /// @param _signature The signature
     /// @return The EIP-1271 magic value
-    function isValidSignature(bytes32 _hash, bytes memory _signature) public view returns (bytes4) {
+    function isValidSignature(bytes32 _hash, bytes calldata _signature) public view returns (bytes4) {
         _validate(abi.encode(_hash), _signature);
         return EIP1271_MAGICVALUE;
     }
@@ -51,20 +51,41 @@ contract P256Signer {
     /// @param _hash The hash of the data signed
     /// @param _signature The signature
     /// @return The EIP-1271 magic value
-    function isValidSignature(bytes memory _hash, bytes memory _signature) public view returns (bytes4) {
+    function isValidSignature(bytes memory _hash, bytes calldata _signature) public view returns (bytes4) {
         _validate(_hash, _signature);
         return OLD_EIP1271_MAGICVALUE;
+    }
+
+    struct SignatureLayout {
+        bytes authenticatorData;
+        bytes clientData;
+        uint256 challengeOffset;
+        uint256[2] rs;
     }
 
     /// @notice Validates the signature
     /// @param data The data signed
     /// @param _signature The signature
-    function _validate(bytes memory data, bytes memory _signature) private view {
+    function _validate(bytes memory data, bytes calldata _signature) private view {
         bytes32 _hash = keccak256(data);
-        (bytes memory authenticatorData, bytes memory clientData, uint256 challengeOffset, uint256[2] memory rs) =
-            abi.decode(_signature, (bytes, bytes, uint256, uint256[2]));
+        SignatureLayout calldata signaturePointer;
+        // This code should precalculate the offsets of variables as defined in the layout
+        // Calldata variables are represented as offsets, and, I think, length for dynamic types
+        // If the calldata is malformed (e.g., shorter than expected), this will revert with an out of bounds error
+        assembly {
+            signaturePointer := _signature.offset
+        }
 
-        bool valid = WrapperFCLWebAuthn.checkSignature(authenticatorData, 0x01, clientData, _hash, challengeOffset, rs, [x, y]);
+        bool valid = FCL_WebAuthn.checkSignature(
+            signaturePointer.authenticatorData,
+            0x01,
+            signaturePointer.clientData,
+            _hash,
+            signaturePointer.challengeOffset,
+            signaturePointer.rs,
+            x,
+            y
+        );
 
         if (!valid) revert InvalidSignature();
     }
