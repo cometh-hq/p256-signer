@@ -4,18 +4,9 @@ const deploy = async (hre) => {
   } = hre;
   const [deployer] = await hre.ethers.getSigners();
 
-  const wrapperFCLWebAuthn = await deploy("WrapperFCLWebAuthn", {
-    from: deployer.address,
-    log: true,
-    deterministicDeployment: true,
-  });
-
   const P256Signer = await deploy("P256Signer", {
     from: deployer.address,
     log: true,
-    libraries: {
-      WrapperFCLWebAuthn: wrapperFCLWebAuthn.address,
-    },
     deterministicDeployment: true,
   });
 
@@ -26,13 +17,9 @@ const deploy = async (hre) => {
     args: [P256Signer.address],
   });
 
-  await run("verify:verify", { address: wrapperFCLWebAuthn.address });
-  await run("verify:verify", {
+  /*   await run("verify:verify", {
     address: P256Signer.address,
-    libraries: {
-      WrapperFCLWebAuthn: wrapperFCLWebAuthn.address,
-    },
-  });
+  }); */
   await run("verify:verify", {
     address: factory.address,
     constructorArguments: [P256Signer.address],
