@@ -1,4 +1,5 @@
 # P256 Signer
+
 This library implements the decoding and verification of a signed [Webauthn](https://www.w3.org/TR/webauthn-2/) payload following the [EIP 1271](https://eips.ethereum.org/EIPS/eip-1271) providing an implementation of Standard Signature Validation Method when the account is a smart contract.
 
 ## Contracts overview
@@ -20,7 +21,14 @@ The `P256Signer` contract represents a Gnosis Safe signer for a given secp256r1 
 
 The `P256SignerFactory` contract is a factory for P256Signers. It allows us to have deterministic addresses for a given secp256r1 public key.
 
+## Audits
+
+Gnosis chain audit: https://gnosischain.notion.site/p256-signer-Audit-a9e7807bc9dd4a768d0f78e3919d3eac
+
+Contracts deployments: https://github.com/cometh-hq/p256-signer/pull/23
+
 ## Signature malleability
+
 Clients need to note there is a potential signature malleability by replacing `(r, s)` by `(r, -s mod n)`.
 It is the responsibility of the client to check the message signed is played only once if necessary.
 
@@ -30,21 +38,25 @@ You will need `INFURA_ID=<your_infura_id>` in your env variables.
 You will need forge installed, see foundry book for instructions [here](https://book.getfoundry.sh/getting-started/installation).
 
 Install FCL dependency:
+
 ```bash
 forge install
 ```
 
 To launch both hardhat and forge tests:
+
 ```bash
 yarn test
 ```
 
 ### Hardhat
+
 ```bash
 npx hardhat test
 ```
 
 ### Forge
+
 ```bash
 forge test
 ```
