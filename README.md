@@ -25,7 +25,7 @@ The `P256SignerFactory` contract is a factory for P256Signers. It allows us to h
 
 Gnosis chain audit: https://gnosischain.notion.site/p256-signer-Audit-a9e7807bc9dd4a768d0f78e3919d3eac
 
-Contracts deployments: https://github.com/cometh-hq/p256-signer/pull/23
+We've updated our contracts following the audit's recommandations, see deployments: https://github.com/cometh-hq/p256-signer/pull/23
 
 ## Signature malleability
 
