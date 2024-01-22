@@ -53,6 +53,18 @@ module.exports = {
       url: "https://muster-anytrust.alt.technology",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
+    muster: {
+      url: "https://muster.alt.technology/",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    muster_production: {
+      url: "https://muster.alt.technology/",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    muster_staging: {
+      url: "https://muster.alt.technology/",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
     mumbai: {
       url: "https://polygon-mumbai.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
@@ -139,6 +151,13 @@ module.exports = {
         chainId: 2121337,
         urls: {
           apiURL: "https://muster-anytrust-explorer.alt.technology/api",
+        },
+      },
+      {
+        network: "muster",
+        chainId: 4078,
+        urls: {
+          apiURL: "https://muster-explorer-v2.alt.technology/api",
         },
       },
       {
