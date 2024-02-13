@@ -132,6 +132,18 @@ module.exports = {
       url: "https://rpc.holesky.redstone.xyz",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
+    optimism_sepolia_production: {
+      url: "https://sepolia.optimism.io",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    arthera_production: {
+      url: "https://rpc.arthera.net/",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    mainnet_production: {
+      url: "https://eth-mainnet.g.alchemy.com/v2/hRQndYJCNkdZvpuBIYaXICSOlck74EvP",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
   },
   etherscan: {
     // Your API key for Etherscan
