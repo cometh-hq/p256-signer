@@ -17,9 +17,9 @@ const deploy = async (hre) => {
     args: [P256Signer.address],
   });
 
-  /*   await run("verify:verify", {
+  await run("verify:verify", {
     address: P256Signer.address,
-  }); */
+  });
   await run("verify:verify", {
     address: factory.address,
     constructorArguments: [P256Signer.address],
