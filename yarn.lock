@@ -69,10 +69,10 @@
     "@chainsafe/persistent-merkle-tree" "^0.4.2"
     case "^1.6.3"
 
-"@cometh/contracts-factory@^1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@cometh/contracts-factory/-/contracts-factory-1.2.3.tgz#1afbc8c3e48e30deaebf1663e901795d66485722"
-  integrity sha512-PAKBiW8FZeKzCTfkAxUenz8nxb14sGXPhXMgvwOwrI3nMCi54MLQkAynTtHOEimdWZIN+mSpDjz5Ry4xIths2w==
+"@cometh/contracts-factory@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@cometh/contracts-factory/-/contracts-factory-1.2.5.tgz#230ca925d63adf8030271de16e5693a89c672210"
+  integrity sha512-vsQVhes6xowUOGdDL4qe3wS1FkAdsozHQyc2q6A/70OTzPAA9OQikDAj0UuXGpECCuy/OnZvsruqiZTHoNCsLw==
   dependencies:
     dotenv "^16.3.1"
     ethers "^5.7.0"

@@ -144,6 +144,15 @@ module.exports = {
       url: "https://eth-mainnet.g.alchemy.com/v2/hRQndYJCNkdZvpuBIYaXICSOlck74EvP",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
+    amoy_production: {
+      url: "https://polygon-amoy.infura.io/v3/2e1346349a5d4a24aeba9dee6c7b20b5",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+      gasPrice: 30000000000,
+    },
+    XL_production: {
+      url: "http://90.120.6.91:9650/ext/bc/2HN8vrS7vKPxw2hMAkXyhKqxQurfyBaVukCWuR442q3YimaeHQ/rpc",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
   },
   etherscan: {
     // Your API key for Etherscan
