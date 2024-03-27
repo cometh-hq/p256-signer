@@ -136,6 +136,10 @@ module.exports = {
       url: "https://sepolia.optimism.io",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
+    optimism_production: {
+      url: "https://optimism-mainnet.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
     arthera_production: {
       url: "https://rpc.arthera.net/",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
@@ -145,12 +149,28 @@ module.exports = {
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
     amoy_production: {
-      url: "https://polygon-amoy.infura.io/v3/2e1346349a5d4a24aeba9dee6c7b20b5",
+      url: "https://polygon-amoy.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
       gasPrice: 30000000000,
     },
     XL_production: {
       url: "http://90.120.6.91:9650/ext/bc/2HN8vrS7vKPxw2hMAkXyhKqxQurfyBaVukCWuR442q3YimaeHQ/rpc",
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    arbitrum_production: {
+      url: "https://arbitrum-mainnet.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    arbitrum_sepolia_production: {
+      url: "https://arbitrum-sepolia.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    base_production: {
+      url: "https://base-mainnet.g.alchemy.com/v2/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
+    base_sepolia_production: {
+      url: "https://base-sepolia.g.alchemy.com/v2/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
   },
@@ -187,6 +207,38 @@ module.exports = {
         urls: {
           apiURL: "https://testnet-zkevm.polygonscan.com/api",
           browserURL: "https://testnet-zkevm.polygonscan.com/",
+        },
+      },
+      {
+        network: "arbitrum_sepolia",
+        chainId: 421614,
+        urls: {
+          apiURL: "https://api-sepolia.arbiscan.io/api",
+          browserURL: "https://sepolia.arbiscan.io/",
+        },
+      },
+      {
+        network: "arbitrum",
+        chainId: 42161,
+        urls: {
+          apiURL: "https://api.arbiscan.io/api",
+          browserURL: "https://arbiscan.io/",
+        },
+      },
+      {
+        network: "base_sepolia",
+        chainId: 84532,
+        urls: {
+          apiURL: "https://api-sepolia.basescan.org/api",
+          browserURL: "https://sepolia.basescan.org/",
+        },
+      },
+      {
+        network: "base",
+        chainId: 8453,
+        urls: {
+          apiURL: "https://api.basescan.org/api",
+          browserURL: "https://basescan.org/",
         },
       },
     ],
