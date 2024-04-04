@@ -154,7 +154,7 @@ module.exports = {
       gasPrice: 30000000000,
     },
     XL_production: {
-      url: "http://90.120.6.91:9650/ext/bc/2HN8vrS7vKPxw2hMAkXyhKqxQurfyBaVukCWuR442q3YimaeHQ/rpc",
+      url: "https://subnets.avax.network/xlnetworkt/testnet/rpc",
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
     arbitrum_production: {
