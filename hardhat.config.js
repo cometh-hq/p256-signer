@@ -161,6 +161,10 @@ module.exports = {
       url: "https://arbitrum-mainnet.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
     },
+    arbitrum_sepolia_develop: {
+      url: "https://arbitrum-sepolia.infura.io/v3/" + process.env.INFURA_ID,
+      accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
+    },
     arbitrum_sepolia_production: {
       url: "https://arbitrum-sepolia.infura.io/v3/" + process.env.INFURA_ID,
       accounts: [process.env.PRIVATE_KEY || ethers.ZeroHash],
